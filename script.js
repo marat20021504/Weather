@@ -27,13 +27,16 @@ function getResults(query) {
 }
 
 function displayResults(weather) {
+    console.log(weather)
     const html = `
         <div class="city">${weather.name} ${weather.sys.country}</div>
         <div class="date">Saturday 12 February 2022</div>
         <div class="temp">${Math.round(weather.main.temp)} °C</div>
-        <div class="weather">${weather.weather[0].main}</div>
+        <div class="main-icon">
+            <div class="weather">${weather.weather[0].main}</div>
+            <img src=https://openweathermap.org/img/wn/${weather.weather[0].icon}.png>
+        </div>
         <div class="hi-low">${Math.round(weather.main.temp_min)}°C / ${Math.round(weather.main.temp_max)}°C</div>
     `
-
     main.insertAdjacentHTML("beforeend", html)
 }
